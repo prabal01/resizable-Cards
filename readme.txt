@@ -1,5 +1,5 @@
 hello sir/ma'am, 
-                Please follow the below steps to run this app into your system. I am assuming you have node preinstalled in your system. if not please refer install node env first.  
+                Please follow the below steps to run this app into your system. I am assuming you have node preinstalled in your system. if not please install node env first.  
 
 Step 1- Setup backend
     => Navigate to the dir named "backend" which is inside the root folder.
