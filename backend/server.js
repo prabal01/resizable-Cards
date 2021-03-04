@@ -1,7 +1,7 @@
 const express = require("express")
 var bodyParser = require('body-parser')
 const cors = require("cors")
-const { Card1, Card2, Card3 } = require("./models/cardModels")
+const { Card1, Card2, Card3, Counter } = require("./models/cardModels")
 const app = express()
 app.use(cors())
 app.use(bodyParser.json());
@@ -97,7 +97,8 @@ app.get("/card/api/", (req, res) => {
             if (!err) {
                 if (data) {
                     res.json(data[data.length - 1])
-                }            } else {
+                }
+            } else {
                 console.log(err)
             }
 
@@ -172,8 +173,36 @@ app.patch("/card/api", function (req, res) {
     }
 })
 
+// handling count
 
+app.get("/count",(req,res)=>{
+    Counter.find({},(err,data)=>{
+        if(!err){
+            res.json(data[0])
+        }
+    
+    else{
+        console.log(err)
+    }})
+})
 
+app.patch("/count",(req,res)=>{
+    console.log("called patch api")
+        Counter.find({},(err,data)=>{
+            const id=data[0]._id
+            console.log(id)
+            Counter.findByIdAndUpdate(id, { countAdd: req.body.countAdd , countUpdate:req.body.countUpdate}, (err, docs) => {
+                if (!err) {
+                    console.log(docs)
+                    res.sendStatus(200)
+                }
+                else {
+                    console.log(err)
+                }
+            })
+        })
+    
+})
 
 const port = 9000
 

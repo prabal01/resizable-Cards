@@ -28,9 +28,14 @@ const card3Schema = new mongoose.Schema({
     countUpdate: Number
 })
 
+const counterSchema = new mongoose.Schema({
+    countAdd:Number,
+    countUpdate:Number,
+})
 
+const Counter=mongoose.model("counterCollection",counterSchema)
 const Card1 = mongoose.model("card1Collection", card1Schema)
 const Card2 = mongoose.model("card2Collection", card2Schema)
 const Card3 = mongoose.model("card3Collection", card3Schema)
 
-module.exports = { Card1, Card2, Card3 };
+module.exports = { Card1, Card2, Card3,Counter };
