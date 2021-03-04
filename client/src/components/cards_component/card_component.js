@@ -13,10 +13,10 @@ function CardComponent(props) {
     const [modeInfo, setModeInfo] = useState("Display Mode")
 
 
-
+// eslint-disable-next-line
     useEffect(() => {
         setTextInside(props.Para)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     })
 
 

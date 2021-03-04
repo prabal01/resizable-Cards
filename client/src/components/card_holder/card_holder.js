@@ -12,9 +12,10 @@ function CardHolder(props) {
     // fetch the data from the server
     const getText = (cardNumber) => {
         axios.get("http://localhost:9000/card/api/?card=" + cardNumber).then((doc) => {
+            // eslint-disable-next-line
             if (cardNumber == 1) {
                 setCard1Text(doc.data.text)
-
+                // eslint-disable-next-line
             } else if (cardNumber == 2) {
                 setCard2Text(doc.data.text)
             } else {
