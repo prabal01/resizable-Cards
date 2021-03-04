@@ -25,7 +25,7 @@ function CardComponent(props) {
 
     var para = <p className="contentPara">{textInside}</p>
     var addButton = <button className="addButton" onClick={() => {
-        setModeInfo("Type Something")
+        setModeInfo("Add Mode")
         setAddNewMode(true)
         setTempText("")
     }}>
@@ -52,6 +52,7 @@ function CardComponent(props) {
         addButton = <button className="saveButton " onClick={() => {
 
             // updating on the client side
+            setModeInfo("Display Mode")
             props.IncAdd()
             setAddNewMode(false)
             setTextInside(tempText)
@@ -89,7 +90,7 @@ function CardComponent(props) {
     // if update mode is true
     if (updateMode === true) {
         updateButton = <button className="cancelButton" onClick={() => {
-
+            setModeInfo("Display Mode")
             setUpdateMode(false)
         }
         }>
